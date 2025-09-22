@@ -1,173 +1,23 @@
+<!-- Main HTML file for TM Wish Portal -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TM Wish Portal</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Darker, festive gradient */
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
-        }
-
-        .container {
-            text-align: center;
-            z-index: 10;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-      h1 {
-            font-size: 4.5em;
-            font-weight: 900;
-            color: #f1c40f; /* Bright golden yellow for festival name */
-            text-shadow: 0 0 15px rgba(241, 196, 15, 0.8), 0 0 30px rgba(241, 196, 15, 0.6);
-            margin: 0;
-            animation: glowPulse 2s ease-in-out infinite, fadeIn 2s ease-in-out;
-        }
-
-        @keyframes glowPulse {
-            0%, 100% { text-shadow: 0 0 15px rgba(241, 196, 15, 0.8), 0 0 30px rgba(241, 196, 15, 0.6); }
-            50% { text-shadow: 0 0 25px rgba(241, 196, 15, 1), 0 0 40px rgba(241, 196, 15, 0.8); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .by-text {
-            font-size: 1.5em;
-            font-weight: 500;
-            color: #00ffcc; /* Vibrant cyan for "By: Tech Masala" */
-            text-shadow: 0 0 5px rgba(0, 255, 204, 0.7);
-            margin-top: 10px;
-        }
-
-        .by-text a {
-            color: #00ffcc; /* Coral for Tech Masala link */
-            text-decoration: none;
-            font-weight: 700;
-            text-shadow: 0 0 5px rgba(0, 255, 204, 0.7);
-            transition: color 0.3s, transform 0.3s;
-        }
-.by-text a:hover {
-            color: #feffff; /* Darker coral on hover */
-            transform: scale(1.1);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Animated festival name at the bottom */
-        .festival-text {
-            position: absolute;
-            bottom: 80px;
-            font-size: 2em;
-            font-weight: bold;
-            color: #ff4500; /* Bright orange for bottom text */
-            text-shadow: 0 0 5px rgba(255, 69, 0, 0.7);
-            animation: slideIn 3s ease-in-out infinite;
-        }
-
-        @keyframes slideIn {
-            0% { transform: translateX(-100%); opacity: 0; }
-            50% { transform: translateX(0); opacity: 1; }
-            100% { transform: translateX(100%); opacity: 0; }
-        }
-
-        /* Balloon styles */
-        .balloon {
-            position: absolute;
-            bottom: -100px;
-            width: 50px;
-            height: 70px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: floatUp 10s linear infinite;
-            opacity: 0.8;
-        }
-
-        .balloon::before {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            width: 2px;
-            height: 20px;
-            background: #000;
-            transform: translateX(-50%);
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-100vh) rotate(360deg); }
-            100% { transform: translateY(-200vh) rotate(720deg); }
-        }
-
-        /* Confetti styles */
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: red;
-            animation: confettiFall 5s linear infinite;
-            border-radius: 50%;
-        }
-
-        @keyframes confettiFall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-        }
-
-        /* Share button styles */
-        .share-button {
-            position: absolute;
-            bottom: 20px;
-            padding: 12px 24px;
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #fff;
-            background-color: #25D366; /* WhatsApp green */
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        .share-button:hover {
-            background-color: #1ebe57;
-            transform: scale(1.05);
-        }
-
-        .share-icon {
-            width: 24px;
-            height: 24px;
-        }
-    </style>
+    <!-- External CSS file for all styles -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Main content container -->
     <div class="container">
+        <!-- User-provided image (via ?img=URL) will appear here -->
+    <img id="festivalImage" class="animated-image" src="" alt="Festival Image" style="max-width: 300px; max-height: 200px; display: none; margin-bottom: 20px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.15);">
         <h1 id="festivalNameText">Happy Festival</h1>
         <div class="by-text"> <span>By:</span>
             <a href="https://techmasala.addastudents.com/" target="_blank">Tech Masala</a></div>
     </div>
-    <div class="festival-text" id="festivalName">Festival</div>
+    <!-- WhatsApp share button -->
     <button class="share-button" onclick="shareOnWhatsApp()">
         <svg class="share-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.669.15-.198.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.134.297-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.074-.149-.669-.719-.911-.99-.242-.272-.487-.247-.669-.198-.182.05-1.387.406-1.584.606-.198.198-.297.693-.297 1.09 0 .398.099 1.087.669 1.784.569.695 1.757 1.881 3.737 2.975.495.273 1.087.595 1.634.893.545.297 1.04.496 1.387.645.347.149.693.099 1.04-.099.347-.198 1.485-.669 1.784-.867.297-.198.595-.173.842-.074.248.099.495.595.644.893.149.297.149.744-.025.992-.173.248-.644.471-1.387.669zm4.396-2.382c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10 10 4.477 10 10zm-2.5 0c0-4.142-3.358-7.5-7.5-7.5s-7.5 3.358-7.5 7.5 3.358 7.5 7.5 7.5 7.5-3.358 7.5-7.5z"/>
@@ -175,45 +25,7 @@
         Share
     </button>
 
-    <script>
-        // Fetch festival name from query string
-        const urlParams = new URLSearchParams(window.location.search);
-        const festival = urlParams.get('festival') || 'Festival';
-        document.getElementById('festivalNameText').textContent = `Happy ${festival}`;
-        document.getElementById('festivalName').textContent = festival;
-
-        // Create floating balloons
-        function createBalloon() {
-            const balloon = document.createElement('div');
-            balloon.classList.add('balloon');
-            balloon.style.left = `${Math.random() * 100}vw`;
-            balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            balloon.style.animationDuration = `${Math.random() * 5 + 5}s`;
-            document.body.appendChild(balloon);
-            setTimeout(() => balloon.remove(), 10000);
-        }
-
-        // Create confetti
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.classList.add('confetti');
-            confetti.style.left = `${Math.random() * 100}vw`;
-            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
-            document.body.appendChild(confetti);
-            setTimeout(() => confetti.remove(), 5000);
-        }
-
-        // Generate balloons and confetti continuously
-        setInterval(createBalloon, 500);
-        setInterval(createConfetti, 100);
-
-        // Share on WhatsApp
-        function shareOnWhatsApp() {
-            const message = `Celebrate ${festival} with joy! Share the festive spirit with this wish from Tech Masala: ${window.location.href}`;
-            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-        }
-    </script>
+    <!-- External JavaScript file for all interactivity -->
+    <script src="script.js"></script>
 </body>
 </html>

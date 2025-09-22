@@ -1,0 +1,147 @@
+/* Animated image: center and move left/right */
+.animated-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: moveLeftRight 3s ease-in-out infinite alternate;
+}
+
+@keyframes moveLeftRight {
+    0% { transform: translateX(-40px); }
+    100% { transform: translateX(40px); }
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+    /*
+      Main stylesheet for TM Wish Portal
+      Contains layout, animation, and component styles
+    */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-size: 4.5em;
+    font-weight: 900;
+    color: #f1c40f;
+    text-shadow: 0 0 15px rgba(241, 196, 15, 0.8), 0 0 30px rgba(241, 196, 15, 0.6);
+    margin: 0;
+    animation: glowPulse 2s ease-in-out infinite, fadeIn 2s ease-in-out;
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 15px rgba(241, 196, 15, 0.8), 0 0 30px rgba(241, 196, 15, 0.6); }
+    50% { text-shadow: 0 0 25px rgba(241, 196, 15, 1), 0 0 40px rgba(241, 196, 15, 0.8); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.by-text {
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #00ffcc;
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.7);
+    margin-top: 10px;
+}
+
+.by-text a {
+    color: #00ffcc;
+    text-decoration: none;
+    font-weight: 700;
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.7);
+    transition: color 0.3s, transform 0.3s;
+}
+.by-text a:hover {
+    color: #feffff;
+    transform: scale(1.1);
+}
+
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 50px;
+    height: 70px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: floatUp 10s linear infinite;
+    opacity: 0.8;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    width: 2px;
+    height: 20px;
+    background: #000;
+    transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-100vh) rotate(360deg); }
+    100% { transform: translateY(-200vh) rotate(720deg); }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    animation: confettiFall 5s linear infinite;
+    border-radius: 50%;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.share-button {
+    position: absolute;
+    bottom: 20px;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #25D366;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.share-button:hover {
+    background-color: #1ebe57;
+    transform: scale(1.05);
+}
+
+.share-icon {
+    width: 24px;
+    height: 24px;
+}
