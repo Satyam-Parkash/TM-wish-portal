@@ -54,8 +54,8 @@ setInterval(createConfetti, 100); // Confetti every 0.1s
 
 // --- Share on WhatsApp ---
 function shareOnWhatsApp() {
-    // Compose WhatsApp message and open share link
-    const message = `Celebrate ${festival} with joy! Share the festive spirit with this wish from Tech Masala: ${window.location.href}`;
+    // Compose a professional, dynamic WhatsApp message
+    const message = `Wishing you and your loved ones a very Happy ${festival}!\n\nCelebrate this special occasion with joy and positivity.\n\nSend your own festive wish with TM Wish Portal by Tech Masala: ${window.location.href}`;
     const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
 }
