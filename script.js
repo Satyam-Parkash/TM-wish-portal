@@ -6,8 +6,12 @@ const urlParams = new URLSearchParams(window.location.search); // Get URL parame
 const festival = urlParams.get('festival') || 'Festival'; // Default to 'Festival' if not provided
 const imgUrl = urlParams.get('img'); // Get image URL if provided
 
+
 // Set main heading
 document.getElementById('festivalNameText').textContent = `Happy ${festival}`;
+
+// Set document title as per festival name
+document.title = `Happy ${festival} | TM Wish Portal`;
 
 // Set image if img parameter is present
 const festivalImage = document.getElementById('festivalImage');
