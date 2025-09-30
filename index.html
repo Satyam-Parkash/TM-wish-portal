@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta property="og:image" content="" id="dynamicOgImage">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TM Wish Portal</title>
@@ -25,7 +26,18 @@
         Share
     </button>
 
-    <!-- External JavaScript file for all interactivity -->
-    <script src="script.js"></script>
+        <!-- External JavaScript file for all interactivity -->
+        <script src="script.js"></script>
+        <script>
+            // Dynamically set og:image meta tag if ?img= is present
+            (function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const imgUrl = urlParams.get('img');
+                if (imgUrl) {
+                    var ogImg = document.getElementById('dynamicOgImage');
+                    if (ogImg) ogImg.setAttribute('content', imgUrl);
+                }
+            })();
+        </script>
 </body>
 </html>
